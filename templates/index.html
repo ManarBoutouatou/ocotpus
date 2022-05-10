@@ -1,0 +1,364 @@
+
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+	<meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <!-- Site Title  -->
+    <title>{% trans "Octopus Consulting | Agence de marketing digital" %}</title>
+    <!-- Bundle and Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor.bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-salvia.css' %}" id="changeTheme">
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+</head>
+<body class="nk-body body-wider theme-dark ">
+    <div class="nk-wrap">
+        <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
+		    <!-- Header @s -->
+            <div class="header-main">
+                <div class="container">
+                    <div class="header-wrap">
+                        <!-- Logo @s -->
+                        <div class="header-logo logo animated" data-animate="fadeInDown" data-delay=".65">
+                            <a href="./" class="logo-link">
+                                <img class="logo-dark" src="{% static 'images/light-logo.png' %}" srcset="images/light-logo.png 2x" alt="logo">
+                                <img class="logo-light" src="{% static 'images/logo.png' %}" srcset="images/logo.png 2x" alt="logo">
+                            </a>
+                        </div>
+
+                        <!-- Menu Toogle @s -->
+                        <div class="header-nav-toggle">
+                            <a href="#" class="navbar-toggle" data-menu-toggle="header-menu">
+                                <div class="toggle-line">
+                                    <span></span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Menu @s -->
+                        <div class="header-navbar header-navbar-s2">
+                            <nav class="header-menu justify-content-between" id="header-menu">
+                                <ul class="menu animated remove-animation" data-animate="fadeInDown" data-delay=".75">
+                                    <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:index' %}">ACCEUIL </a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:services' %}">SERVICES</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="#works">BLOG</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="#token">REALISATIONS</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:contact' %}">CONTACT</a></li>
+                                </ul>
+                                <ul class="menu-btns align-items-center animated remove-animation" data-animate="fadeInDown" data-delay=".85">
+                                    <li class="language-switcher language-switcher-s2 toggle-wrap">
+                                        <a class="btn btn-rg toggle-tigger btn-outline btn-auto no-change btn-primary" href="#"><span>FR</span><em class="icon ti ti-angle-down"></em></a>
+                                        <ul class="toggle-class toggle-drop drop-list drop-list-mb">
+                                            <li><a href="#">EN</a></li>
+                                            <li><a href="#">AR</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                </ul>
+                            </nav>
+                        </div><!-- .header-navbar @e -->
+                    </div>                                                
+                </div>
+            </div><!-- .header-main @e -->
+			<!-- Banner @s -->
+            <div class="header-banner bg-theme-grad-s2">
+                <div class="nk-banner">
+                    <div class="banner banner-fs banner-single banner-s1 banner-s1-overlay">
+                        <div class="banner-wrap">
+                            <div class="container">
+                                <div class="row align-items-center justify-content-center justify-content-lg-between gutter-vr-60px">
+                                    <div class="col-lg-12 col-xl-12 text-center text-lg-center">
+                                        <div class="banner-caption tc-light">
+                                            <div class="cpn-head mt-0">
+                                                <h1 class="title title-thin title-xl-2 animated" data-animate="fadeInUp" data-delay="1.25" style="font-weight: bold;"> OCTOPUS-CONSULTING <br> </h1>
+                                            </div>
+                                            <div class="cpn-text cpn-text-s2">
+                                                <p class="lead-s2 lead-light animated" data-animate="fadeInUp" data-delay="1.35"> <strong> AGENCE DE CROISSANCE DIGITALE </strong> </p>
+                                            </div>
+                                            <div class="cpn-btns">
+                                                <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45">
+                                                    <li><a class="btn btn-md btn-primary btn-outline" href="#">E-commerce</a></li>
+                                                    <li><a class="btn btn-md btn-primary btn-outline" href="#">Gym app</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="cpn-social">
+                                                <h4 class="title-xs animated" data-animate="fadeInUp" data-delay="1.55">REJOIGNEZ NOTRE COMMUNAUTÉ</h4>
+                                                <ul class="social">
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a href="https://wa.me/672606639"><em class="social-icon fab fa-whatsapp"></em><span>whatsapp</span></a></li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a href="https://www.facebook.com/OctopusConsultingAlgerie"><em class="social-icon fab fa-facebook-f"></em></a></li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a href="https://www.instagram.com/octopus.consulting/"><em class="social-icon fab fab fa-instagram"></em></a></li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a href="https://www.linkedin.com/company/dz-octopus-consulting/"><em class="social-icon fab fa-linkedin-in"></em></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                    {% comment %} <div class="col-lg-6 col-xl-5 col-md-8 col-sm-9">
+                                        <div class="token-status token-status-s3 round bg-theme tc-light animated" data-animate="fadeInUp" data-delay="2">
+                                            <h4 class="title-md title-thin">Pre-Sale Ends In</h4>
+                                            <div class="countdown-s2 countdown" data-date="2021/08/10 20:00:00"></div>
+                                            <div class="token-info token-info-s1">
+                                                <div class="token-info-item token-info-item-s1">
+                                                    <div class="token-info-item-list">
+                                                        <span>Token Price:</span>
+                                                        <h4>1 ICOX=$0.02</h4>
+                                                    </div>
+                                                    <div class="token-info-item-list">
+                                                        <span>We Accept:</span>
+                                                        <h4><em class="fab fa-ethereum"></em> ETH</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="token-info-item token-info-item-s1">
+                                                    <span>Tokens Availablen <br class="d-none d-md-block"> on Pre-Sale:</span>
+                                                    <h4>90,000,000 ICOX</h4>
+                                                </div>
+                                            </div>
+                                            <div class="token-action token-action-s2 flex-wrap flex-sm-nowrap">
+                                                <a href="#" class="btn btn-md btn-secondary">Buy Tokens Now</a>
+                                                <div class="token-min-s2">
+                                                    <span>Minimum Purchase:</span> 
+                                                    <span>10,000 ICOX</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- .col -->
+                                </div><!-- .row -->
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .nk-banner -->
+                <div class="nk-ovm shape-q"></div>
+                
+                <!-- Place Particle Js -->
+				<div id="particles-bg" class="particles-container particles-bg" data-pt-base="#00c0fa" data-pt-base-op=".3" data-pt-line="#2b56f5" data-pt-line-op=".5" data-pt-shape="#00c0fa" data-pt-shape-op=".2"></div>
+            </div>
+			<!-- .header-banner @e -->
+		</header>
+    
+        <main class="nk-pages">
+             <!-- // -->
+            <section class="section bg-light" id="about">
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block nk-block-features-s2">
+                        <div class="row align-items-center flex-row-reverse gutter-vr-30px">
+                            <div class="col-lg-5">
+                                <div class="gfx py-4 mx-auto mx-lg-0 animated" data-animate="fadeInUp" data-delay=".1">
+                                    <img src="{% static 'images/light-logo.png' %}" alt="gfx" style="margin-left:110px; width:400px;">
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-7">
+                                <!-- Section Head @s -->
+                                <div class="nk-block-text pdb-r">
+                                    <h2 class="title title-thin animated" data-animate="fadeInUp" data-delay=".1">{% trans "À PROPOS" %}</h2>
+                                    <p class="animated" data-animate="fadeInUp" data-delay=".2">{% trans "Notre entreprise est spécialisée dans le secteur du marketing digital depuis 4 années, nous avons acquis l’expérience nécessaire dans ce domaine pour apporter des réponses claires, précises et techniques à nos différents clients." %}</p>
+                                    <p class="animated" data-animate="fadeInUp" data-delay=".3">{% trans "Nos services ont par conséquent pu acquérir l'expérience et la compétence pour assurer le parcours idéal de nos clients afin de leurs garantir ; confiance, succès et progrès." %}</p>
+                                </div><!-- .section-head @e -->
+                                {% comment %} <div class="row gutter-vr-20px flex-wrap">
+                                    <div class="col-sm-6">
+                                        <div class="feature feature-s1 animated" data-animate="fadeInUp" data-delay=".4">
+                                            <div class="feature-icon feature-icon-s5 feature-icon-s5-1">
+                                                <em class="icon fas fa-check"></em>
+                                            </div>
+                                            <div class="feature-text feature-text-s1">
+                                                <p>Makes you the sole owner of a secure decentralize registry</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                    <div class="col-sm-6">
+                                        <div class="feature feature-s1 animated" data-animate="fadeInUp" data-delay=".4">
+                                            <div class="feature-icon feature-icon-s5 feature-icon-s5-2">
+                                                <em class="icon fas fa-check"></em>
+                                            </div>
+                                            <div class="feature-text feature-text-s1">
+                                                <p>It’s allows startups to launch and manage crowdfunding</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                    <div class="col-sm-6">
+                                        <div class="feature feature-s1 animated" data-animate="fadeInUp" data-delay=".5">
+                                            <div class="feature-icon feature-icon-s5 feature-icon-s5-3">
+                                                <em class="icon fas fa-check"></em>
+                                            </div>
+                                            <div class="feature-text feature-text-s1">
+                                                <p>Our contributor payouts perfectly simple and easy</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                    <div class="col-sm-6">
+                                        <div class="feature feature-s1 animated" data-animate="fadeInUp" data-delay=".6">
+                                            <div class="feature-icon feature-icon-s5 feature-icon-s5-4">
+                                                <em class="icon fas fa-check"></em>
+                                            </div>
+                                            <div class="feature-text feature-text-s1">
+                                                <p>Owners of cryptocurrency keep their digital coins in ICO</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                </div> {% endcomment %}
+                                <!-- .row -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .block @e -->
+                </div>
+            </section>
+            <!-- // -->
+            <!-- // -->
+            <section class="section bg-white">
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block nk-block-features-s3">
+                        <div class="section-head section-head-s7 wide-auto-sm text-center">
+                            <h2 class="title title-thin animated" data-animate="fadeInUp" data-delay=".1">{% trans "NO SERVICES" %}</h2>
+                            <p class="lead animated" data-animate="fadeInUp" data-delay=".2"></p>
+                        </div>
+                        <div class="row justify-content-center gutter-vr-30px">
+                            {% for service in services  %}
+                            <div class="col-lg-4 col-md-6">
+                                <div class="feature feature-s3 feature-center animated" data-animate="fadeInUp" data-delay=".5">
+                                    <div class="feature-icon feature-icon-auto">
+                                        <em class="icon icon-grd icon-lg {{service.icon}}"></em> 
+                                    </div>
+                                    <div class="feature-text">
+                                        <h4 class="title-sm title-semibold">{{service.name}}</h4>
+                                        <p class="fw-4">{{service.title}}</p>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            {% endfor %}
+                        </div><!-- .row -->
+                    </div><!-- Block @e -->
+                </div>
+            </section>
+            <!-- // -->
+             <!-- // -->
+             <section class="section bg-theme ov-h text-center tc-light overlay-x">
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block nk-block-text-wrap">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col">
+                                <div class="nk-block-text">
+                                    <h3 class="fw-3 pb-2"><span class="h1 fw-3 pb-3 d-block animated" data-animate="fadeInUp" data-delay=".1"> &ldquo;Celui qui n'a pas d'objectifs, ne risque pas de les atteindre.”</span> <span class="d-block animated" data-animate="fadeInUp" data-delay=".2"></span></h3>
+                                    <p class="lead-s2 animated" data-animate="fadeInUp" data-delay=".3">SUNTSU - Un général - stratège militaire, Chinois <br class="d-none d-lg-block"> </p>
+                                </div><!-- .nk-block @e -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .block @e -->
+                </div>
+            </section>
+            <!-- // -->
+              <!-- // -->
+              <section class="section bg-light">
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block nk-block-features-s2">
+                        <div class="row align-items-center flex-row-reverse justify-content-between gutter-vr-30px">
+                            <div class="col-lg-4">
+                                <div class="gfx gfx-auto mb-lg-3 animated" data-animate="fadeInUp" data-delay=".1">
+                                    <img src="{% static 'images/about-home.jpg' %}" style="height:500px" alt="gfx">
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-6">
+                                <!-- Section Head @s -->
+                                <div class="section-head pb-lg-0">
+                                    <h1 class="title title-thin animated" data-animate="fadeInUp" data-delay=".2">{% trans "Passionné de croissance" %}</h1>
+                                    <p class=" animated" data-animate="fadeInUp" data-delay=".3">{% trans "<strong> Octopus consulting </strong> est une agence marketing, spécialisé dans la digitalisation des entreprises. Votre satisfaction est notre réussite." %}</p>
+                                    <h4 class="title title-thin animated" data-animate="fadeInUp" data-delay=".2">{% trans "Pourquoi ?" %}</h4>
+                                    <p class=" animated" data-animate="fadeInUp" data-delay=".3">{% trans "Plus vous digitalisez & automatisez votre Business, plus vous effectuerez votre travail de façon rapide et simplifié tout en réduisant vos charges de gestion et de publicité." %}</p>
+                                    <h4 class="title title-thin animated" data-animate="fadeInUp" data-delay=".2">{% trans "Comment ?" %}</h4>
+                                    <p class=" animated" data-animate="fadeInUp" data-delay=".3">{% trans "En créant des outils faciles à utiliser qui permettent d'automatiser le travail de saisie manuel long et répétitif." %}</p>
+                                </div><!-- .section-head @e -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                        {% comment %} <div class="row features-list flex-wrap gutter-vr-30px">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s1 feature-s1-1 boxed boxed-xs bg-white bordered animated" data-animate="fadeInUp" data-delay=".4">
+                                    <div class="feature-icon feature-icon-s5 feature-icon-s5-1">
+                                        <em class="icon fas fa-check"></em>
+                                    </div>
+                                    <div class="feature-text feature-text-s1">
+                                        <span class="title-xs-alt title-mid">Safe &amp; Secure Transactions</span>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s1 feature-s1-2 boxed boxed-xs bg-white bordered animated" data-animate="fadeInUp" data-delay=".5">
+                                    <div class="feature-icon feature-icon-s5 feature-icon-s5-2">
+                                        <em class="icon fas fa-check"></em>
+                                    </div>
+                                    <div class="feature-text feature-text-s1">
+                                        <span class="title-xs-alt title-mid">Encrypted and Kept Private</span>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s1 feature-s1-3 boxed boxed-xs bg-white bordered animated" data-animate="fadeInUp" data-delay=".6">
+                                    <div class="feature-icon feature-icon-s5 feature-icon-s5-3">
+                                        <em class="icon fas fa-check"></em>
+                                    </div>
+                                    <div class="feature-text feature-text-s1">
+                                        <span class="title-xs-alt title-mid">Multiple Payment Gateway</span>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="feature feature-s1 feature-s1-4 boxed boxed-xs bg-white bordered animated" data-animate="fadeInUp" data-delay=".7">
+                                    <div class="feature-icon feature-icon-s5 feature-icon-s5-4">
+                                        <em class="icon fas fa-check"></em>
+                                    </div>
+                                    <div class="feature-text feature-text-s1">
+                                        <span class="title-xs-alt title-mid">KYC Verification</span>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                        </div><!-- .row --> {% endcomment %}
+                    </div><!-- .block @e -->
+                </div>
+            </section>
+              <!-- // -->
+            <!-- // -->
+            <section class="section section-s bg-light">
+                <div class="container">
+                    <!-- Block @s -->
+                    <div class="nk-block block-partners">
+                        <div class="section-head section-head-sm">
+                            <h6 class="title-md title-thin text-center animated" data-animate="fadeInUp" data-delay=".1">{% trans "Nos partenaires" %}</h6>
+                        </div>
+                        <ul class="partner-list flex-lg-nowrap mgb-m30">
+                            {% for client in clients %} 
+                            <li class="partner-logo-s3 animated" data-animate="fadeInUp" data-delay=".15"> <a href= "{{client.website}}"> <img src="{{client.logo.url}}" alt="{{client.name}}"></a></li>
+                            
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Block @e -->
+                </div>
+            </section>
+              <!-- // -->
+        </main>
+    </div>
+    {% include  "footer.html" %} 
+</body>
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+<!-- JavaScript -->
+<script src="{% static 'js/jquery.bundle.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/charts.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="https://use.fontawesome.com/46f5d04788.js"></script>
+
+</html>
+{% endblock content %}

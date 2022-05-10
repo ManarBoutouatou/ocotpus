@@ -1,0 +1,92 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+	<meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <!-- Site Title  -->
+    <title>{% trans "Octopus Consulting | Agence de marketing digital" %}</title>
+    <!-- Bundle and Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor.bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-salvia.css' %}" id="changeTheme">
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+</head>
+<body class="nk-body body-wider mode-onepage">
+	<div class="nk-wrap">
+        {% include  "navbar.html" %} 
+        <div class="header-banner bg-theme-grad-s2">
+            <div class="nk-banner">
+                <div class="banner banner-page">
+                    <div class="banner-wrap">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-xl-6 col-lg-9">
+                                    <div class="banner-caption cpn tc-light text-center">
+                                        <div class="cpn-head">
+                                            <h2 class="title ttu">Blog</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .nk-banner -->
+            <div class="nk-ovm shape-z6-sm">
+            </div>
+        </div>
+        <main class="nk-pages">
+            <section class="section bg-white">
+                <div class="container">
+                    <div class="nk-block nk-block-blog">
+                        <div class="row">
+                            {% for article in articles %}
+                            <div class="col-lg-4 col-sm-6">
+                                <div class="blog">
+                                    <div class="blog-photo">
+                                        <img src="{{article.banner.url}}" alt="blog-thumb">
+                                    </div>
+                                    <div class="blog-text">
+                                       
+                                        <h4 class="title title-sm"><a href="{% url 'core:article_detail' article.pk %}">{{article.title}}</a></h4>
+                                        <p>{{article.aperçu}}..</p>
+                                    </div>
+                                </div><!-- .blog -->
+                            </div>
+                            {% endfor %}
+                        </div><!-- .row -->
+                        <nav class="w-100 d-flex">
+                            <ul class="pagination">
+                                <li><a class="active" href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><em class="icon ti ti-angle-right"></em></a></li>
+                            </ul>
+                        </nav>
+                    </div><!-- .nk-block -->
+                </div><!-- .container -->
+            </section><!-- .section -->
+        </main>
+    </div>
+{% include  "footer.html" %} 
+</body>
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+<!-- JavaScript -->
+<script src="{% static 'js/jquery.bundle.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/charts.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="https://use.fontawesome.com/46f5d04788.js"></script>
+
+</html>
+{% endblock content %}
