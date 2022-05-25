@@ -1,0 +1,176 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+	<meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <!-- Site Title  -->
+    <title>{% trans "Octopus Consulting | Agence de marketing digital" %}</title>
+    <!-- Bundle and Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor.bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-salvia.css' %}" id="changeTheme">
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+</head>
+<body class="nk-body body-wider mode-onepage">
+	<div class="nk-wrap">
+        {% include  "navbar.html" %} 
+        <div class="header-banner bg-theme-grad-s2">
+            <div class="nk-banner">
+                <div class="banner banner-page">
+                    <div class="banner-wrap">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-xl-6 col-lg-9">
+                                    <div class="banner-caption cpn tc-light text-center">
+                                        <div class="cpn-head">
+                                            <h2 class="title ttu">SERVICES</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .nk-banner -->
+            <div class="nk-ovm shape-z6-sm">
+            </div>
+        </div>
+        <main class="nk-pages">
+            <!-- // -->
+          <section class="section pb-0" id="Section1" >
+                <div class="container">
+                    <div class="nk-block">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 col-mb-10">
+                                <div class="nk-block-text text-center">
+                                    <h2 class="title">{{service.name}}</h2> 
+                                    <p>{{service.title}} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- // -->
+   <!-- // -->
+    <section class="section"  id="Section1" >
+        <div class="container">
+            <div class="nk-block nk-block-text-wrap">
+                <div class="row align-items-center gutter-vr-30px justify-content-lg-between justify-content-center">
+                    <div class="col-lg-5 col-mb-10">
+                        <div class="nk-block-img gfx-re-mdl py-5 py-lg-0">
+                        <i class="fa-regular fa-cart-shopping"></i> 
+                            <img src="{{service.image.url}}" alt="{{service.name}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-mb-10">
+                        <div class="nk-block-text">
+                            <div class="pb-5">
+                                {{service.description|safe}}
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .row -->
+            </div><!-- .block @e -->
+                      {% comment %} <div class="cpn-btns" >
+                              <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45" style ="margin-left:450px;" >
+                                  <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:demo' %}">Demander une démo</a></li>
+                               </ul>
+                     </div> {% endcomment %}
+            <br><br>
+           {% comment %} {% if service.pricing %} 
+                <div class="col-lg-12 col-mb-10">
+                            <div class="nk-block-text">
+                                <div class="pb-5">
+                                {{service.pricing|safe}}
+                                </div>
+                            </div>
+                </div>
+           {% endif %}  {% endcomment %}
+            <div class="rn-pricing-table-area pt--60 bg_color--5">
+    <div class="container-fluid">
+    <div class="reseller_hosting_plan">
+        <ul class="reseller_hosting_plan_list">
+
+            {% comment %} <li class="active">
+                <button>Starter</button>
+            </li>
+            <li>
+                <button>Business</button>
+            </li>
+            <li class="">
+                <button>Advanced</button>
+            </li> {% endcomment %}
+        </ul>
+        <table class="reseller_hosting_plan_table">
+            <thead>
+                {% for status in statuss %}
+                    <tr>
+                        <td class="chars" colspan="1">Fonctionnalitées</td>
+                        <td class="bAcheter_none"></td>
+                        
+                        {% for offre in offres %}
+                                <td class="bg_3e7ccc center offers-header" style="display:table-cell;font-size: 21px; line-height: 30px; color: #000;">
+                                        <div class="reseller_plan_price "> {{status.offre}}</div>
+                                        <div class="small_content" >{{status.offre.prix}} DZD</div>
+                                        <div class="small_content">{{status.offre.description|safe}}</div>
+                                </td>
+                        {% endfor %}
+                    
+                    </tr>
+                    {% comment %} <tr>
+                        <th class="hide"></th>
+                        <th class="default">Starter</th>
+                        <th>Business</th>
+                        <th class="">Advanced</th>
+                    </tr> {% endcomment %}
+         
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>{{status.git fonctionalite}}</td>
+                        <td></td>
+                        <td class="text-success font-weight-bold">{{status.included}}</td>
+                        
+                    
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>  <br><br>
+       <div class="cpn-btns" >
+                              <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45" style ="margin-left:450px;" >
+                                  <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:demo' %}">Demander une démo</a></li>
+                               </ul>
+                     </div>
+        </div>
+    </section>
+<!-- // -->
+         <!-- // -->
+        </main>
+    </div>
+{% include  "footer.html" %} 
+</body>
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+<!-- JavaScript -->
+<script src="{% static 'js/jquery.bundle.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/charts.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="https://use.fontawesome.com/46f5d04788.js"></script>
+
+</html>
+{% endblock content %}

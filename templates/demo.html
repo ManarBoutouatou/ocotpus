@@ -1,0 +1,180 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+	<meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <!-- Site Title  -->
+    <title>{% trans "Octopus Consulting | Agence de marketing digital" %}</title>
+    <!-- Bundle and Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor.bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-salvia.css' %}" id="changeTheme">
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+</head>
+<body class="nk-body body-wider mode-onepage">
+	<div class="nk-wrap">
+        {% include  "navbar.html" %} 
+        <div class="header-banner bg-theme-grad-s2">
+            <div class="nk-banner">
+                <div class="banner banner-page">
+                    <div class="banner-wrap">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-xl-6 col-lg-9">
+                                    <div class="banner-caption cpn tc-light text-center">
+                                        <div class="cpn-head">
+                                            <h2 class="title ttu">Contact</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .nk-banner -->
+            <div class="nk-ovm shape-z6-sm">
+            </div>
+        </div>
+        <main class="nk-pages">
+            <div class="section">
+                <div class="container">
+                    <div class="nk-block">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="section-head text-center">
+                                    <h2 class="title title-regular">Demande d'une démo </h2>
+                                    <p class="wide-sm">Nous vous recontacterons dans les 48H pour échanger sur votre projet.</p>
+                                </div>
+                            </div>
+                        </div>
+                            <!-- Block @s -->
+					<div class="nk-block block-contact" id="contact">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-lg-6">
+                                <div class="contact-wrap round split split-left split-lg-left bg-white">
+                                    
+                                    {% comment %} <h5 class="title title-md">Contactez-nous</h5>
+                                    <p class="wide-sm">Nous vous recontacterons dans les 48H pour échanger sur votre projet.</p> {% endcomment %}
+                                    <form class="nk-form-submit" action="{% url 'core:demo' %}" method="post" >
+                                        {% csrf_token %}
+                                        <div class="field-item">
+                                            <input name="name" id="id_name" type="text" class="input-line required" aria-required="true">
+                                            <label class="field-label field-label-line" for="id_name">Votre Nom *</label>
+                                        </div>
+                                        <div class="field-item">
+                                            <input name="email"  type="email" id="id_email" class="input-line required email" aria-required="true">
+                                            <label class="field-label field-label-line" for="id_email">Votre e-mail *</label>
+                                        </div>
+                                        <div class="field-item">
+                                            <input name="phone"  id="id_phone" type="tel" class="input-line required "  pattern="^(?:0|\(?\+213\)?\s?|00213\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+                                            <label class="field-label field-label-line" for="id_phone">Votre numéro de téléphone *</label>
+                                        </div>
+                                        <div class="field-item">
+                                            <input name="subject" id="id_subject"  type="text" class="input-line required " aria-required="true" value="Demande d'une démo ">
+                                            <label class="field-label field-label-line" for="id_subject">Sujet</label>
+                                        </div>
+                                        <div class="field-item">
+                                            <textarea name="message" id="id_message" class="input-line input-textarea required" aria-required="true"></textarea>
+                                            <label class="field-label field-label-line" for="id_message">Votre Message</label>
+                                        </div>
+                                        <input type="text" class="d-none" name="form-anti-honeypot" value="">
+                                        <div class="row">
+                                                        <!-- message -->
+                                                    {% if messages %}
+                                                    <ul class=" messages" >
+                                                            {% for message in messages %}
+                                                            <h6 {% if message.tags %} class="{{ message.tags }}"{% endif %} style= "background: transparent; color:green;" > {{ message|safe  }} </h6>
+                                                            {% endfor %}
+                                                    </ul> 
+                                                    <!-- message -->
+                                                        {% endif %} 
+                                            <div class="col-sm-4">
+                                                <button type="submit" class="btn btn-md btn-primary btn-outline">Soumettre</button>
+                                            </div>
+                                           
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-4">
+                                <div class="contact-wrap split split-right split-lg-right bg-genitian bg-theme tc-light">
+                                    <div class="d-flex flex-column justify-content-between h-100">
+                                        <ul class="contact-list">
+                                        
+                                            <li>
+                                                <em class="contact-icon fas fa-building"></em>
+                                                <div class="contact-text">
+                                                    {% comment %} <h6>OCTOPUS-CONSULTING</h6> {% endcomment %}
+                                                    <span>Centre zabana, BLIDA</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <em class="contact-icon fas fa-phone"></em>
+                                                <div class="contact-text">
+                                                   <a href="tel:0672606639"> <span>+213672 606 639</span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                    
+                                                <em class="contact-icon fas fa-envelope"></em>
+                                                <div class="contact-text">
+                                                    <a href="mailto:hello@octopus-consulting.com">hello@octopus-consulting.com</span></a>
+                                                </div>
+                                            </li>
+                                            <br>  <br> 
+                                             <li>
+                                                <div class="contact-text">                                                
+                                                        <img src="{% static 'images/logo.png' %}"  alt="logo">
+                                                </div>
+                                            </li>
+                                            {% comment %} <li>
+                                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3207.950605110489!2d2.8062816156271007!3d36.48290909319468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f0dde61df1af3%3A0xb7fbfe86f236ee81!2sOctopus%20Consulting%20Digital%20Growth%20Agency!5e0!3m2!1sen!2sdz!4v1632671230887!5m2!1sen!2sdz"  style="border:0;width: 100%;" allowfullscreen="true" loading="lazy"></iframe>
+                                            </li> {% endcomment %}
+                                           
+                                        </ul>
+                                       
+                                        {% comment %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3207.950605110489!2d2.8062816156271007!3d36.48290909319468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f0dde61df1af3%3A0xb7fbfe86f236ee81!2sOctopus%20Consulting%20Digital%20Growth%20Agency!5e0!3m2!1sen!2sdz!4v1632671230887!5m2!1sen!2sdz"  style="border:0;width: 100%; height:250px;" allowfullscreen="true" loading="lazy"></iframe> {% endcomment %}
+
+                                        <div class="contact-social">
+                                            <h6>{% trans "REJOIGNEZ NOTRE COMMUNAUTÉ" %}</h6>
+                                            <ul class="social-links">
+                                                <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a href="https://wa.me/213672606639"><em class="social-icon fab fa-whatsapp"></em></a></li>
+                                                <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a href="https://www.facebook.com/OctopusConsultingAlgerie"><em class="social-icon fab fa-facebook-f"></em></a></li>
+                                                <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a href="https://www.instagram.com/octopus.consulting/"><em class="social-icon fab fab fa-instagram"></em></a></li>
+                                                <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a href="https://www.linkedin.com/company/dz-octopus-consulting/"><em class="social-icon fab fa-linkedin-in"></em></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+					</div><!-- .block @e -->
+                       
+                </div>
+            </div>
+            <!-- // -->
+        </main>
+    </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3207.950605110489!2d2.8062816156271007!3d36.48290909319468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f0dde61df1af3%3A0xb7fbfe86f236ee81!2sOctopus%20Consulting%20Digital%20Growth%20Agency!5e0!3m2!1sen!2sdz!4v1632671230887!5m2!1sen!2sdz"  style="border:0;width: 100%; height:500px;" allowfullscreen="true" loading="lazy"></iframe>
+{% include  "footer.html" %} 
+</body>
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+<!-- JavaScript -->
+<script src="{% static 'js/jquery.bundle.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/charts.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="https://use.fontawesome.com/46f5d04788.js"></script>
+
+</html>
+{% endblock content %}

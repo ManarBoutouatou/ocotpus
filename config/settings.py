@@ -1,8 +1,7 @@
 from pathlib import Path
-
+from django.utils.translation import gettext_lazy as _
 from decouple import Csv, config
 import os 
-
 from django.contrib.messages import constants as messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +48,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'django.middleware.locale.LocaleMiddleware', # for translation
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -76,7 +76,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "business.context_processors.infos",
-            ],
+            ],        
         },
     },
 ]
@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
-]
+] 
 TINYMCE_DEFAULT_CONFIG = {
     "height": "320px",
     "width": "960px",
@@ -238,4 +238,3 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

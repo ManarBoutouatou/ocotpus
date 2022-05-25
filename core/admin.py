@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client, Contact, Category, Invoice, InvoiceItem, Solution, Service, Quote, Article
+from .models import Client, Contact, Category, Invoice, InvoiceItem, Solution, Service, Quote, Article, Portfolio, Pagetitle, Demo, Offre, Fonctionalite, Status
 from django.contrib.auth.models import Group, User
 from django.utils.html import format_html
 from django.urls import reverse
@@ -30,12 +30,7 @@ class CategoryAdmin(admin.ModelAdmin):
 #     list_display_links = ('id','name')
 #     list_per_page = 40
 
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
-    prepopulated_fields = {"slug": ("name",)}
 
-    list_display_links = ('id','name')
-    list_per_page = 40
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
@@ -44,8 +39,8 @@ class ArticleAdmin(admin.ModelAdmin):
     list_per_page = 40
 
 class QuoteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'autor')
-    list_display_links = ('id','autor')
+    list_display = ('id', 'author')
+    list_display_links = ('id','author')
     list_per_page = 40
 
 
@@ -106,7 +101,24 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 
+class StatusAdmin(admin.ModelAdmin):
+    list_display = ('id', 'fonctionalite','service', 'offre', 'quantity','included' )
+    list_editable = ['quantity','included']
+    list_filter = ('service', 'offre',)
+    list_display_links = ('id','fonctionalite', 'offre','service',)
+    list_per_page = 40
 
+    
+
+class StatusInline(admin.TabularInline):
+    model           = Status
+    raw_id_fields   = ['fonctionalite','service', 'offre',]
+
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'description']
+    list_filter = ['name',]
+    inlines = [StatusInline] 
+    list_per_page = 30
 
 
 admin.site.register(Quote, QuoteAdmin)
@@ -114,4 +126,9 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Portfolio)
+admin.site.register(Pagetitle)
 admin.site.register(Service, ServiceAdmin)
+admin.site.register(Fonctionalite)
+admin.site.register(Status, StatusAdmin)
+admin.site.register(Offre)

@@ -54,6 +54,8 @@
                                 <div class="blog-details">
                                     <div class="row justify-content-center">
                                         <div class="col-xl-10 col-lg-12">
+                                        <h2 class="title">{{article.title}}</h2>
+                                        <p >{{article.chapo}}</p>
                                             <div class="blog-featured">
                                                 <img class="round" src="{{article.banner.url}}" alt="featured">
                                             </div>
@@ -62,10 +64,16 @@
                                             
                                         
                                             <div class="blog-content">
-                                                <h2 class="title">{{article.title}}</h2>
-                                               {{article.texte}}
+                                               
+                                               {{article.texte_haut|safe}}
+                                               <br>
+                                               <i class="fas fa-quote-left"></i>  &nbsp;  {{article.quote}}  &nbsp; <i class="fas fa-quote-right"></i>
+                                               <br><br>
+                                               {{article.texte_bas|safe}}
+
+                                               
                                             </div>
-                                            
+                                       
 
                                         </div>
                                     </div>

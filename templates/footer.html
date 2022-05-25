@@ -27,9 +27,10 @@
                             <h6 class="wgs-title text-white animated" data-animate="fadeInUp" data-delay=".3">Liens Utiles</h6>
                             <div class="wgs-body">
                                 <ul class="wgs-links wgs-links-s3 animated" data-animate="fadeInUp" data-delay=".4">
-                                    <li><a href="#">ESPACE CLIENT</a></li>
-                                    <li><a href="#">CAHIER DE CHARGES</a></li>
-                                    <li><a href="{% url 'core:services' %}e-commerce">E-commerce</a></li>
+                                    {% comment %} <li><a href="#">ESPACE CLIENT</a></li> {% endcomment %}
+                                    <li><a href="#">Devis</a></li>
+                                    <li><a href="{% url 'core:services' %}">E-commerce</a></li>
+                                    <li><a href="{% url 'core:services' %}">Gym APP</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -41,10 +42,10 @@
                                 <ul class="wgs-links wgs-links-s3 animated" data-animate="fadeInUp" data-delay=".6">
                                             <ul class="ft-link">
                                                 <li><a href="{% url 'core:contact' %}">CONTACT</a></li>
-                                                <li><a href="{% url 'core:index' %}#about">OCTOPUS-CONSULTING</a></li>
+                                                <li><a href="{% url 'core:index' %}#abou">OCTOPUS-CONSULTING</a></li>
                                                 <li><a href="{% url 'core:services' %}">SERVICES</a></li>
                                                 <li><a href="{% url 'core:articles' %}">BLOG</a></li>
-                                                <li><a href="#">REALISATIONS</a></li>
+                                                <li><a href="{% url 'core:realisations' %}">REALISATIONS</a></li>
                                             </ul>
                                 </ul>
                             </div>
@@ -61,7 +62,7 @@
                                 <div class="wgs-subscribe wgs-subscribe-s2">
                                     <p class="animated" data-animate="fadeInUp" data-delay=".8"></p>
                                     <ul class="social pt-2">
-                                        <li class="animated" data-animate="fadeInUp" data-delay=".9"><a href="https://wa.me/672606639"><em class="social-icon fab fa-whatsapp"></em><span>whatsapp</span></a></li>
+                                        <li class="animated" data-animate="fadeInUp" data-delay=".9"><a href="https://wa.me/213672606639"><em class="social-icon fab fa-whatsapp"></em><span>whatsapp</span></a></li>
                                         <li class="animated" data-animate="fadeInUp" data-delay=".95"><a href="https://www.facebook.com/OctopusConsultingAlgerie"><em class="social-icon fab fa-facebook-f"></em></a></li>
                                         <li class="animated" data-animate="fadeInUp" data-delay="1"><a href="https://www.instagram.com/octopus.consulting/"><em class="social-icon fab fab fa-instagram"></em></a></li>
                                         <li class="animated" data-animate="fadeInUp" data-delay="1.05"><a href="https://www.linkedin.com/company/dz-octopus-consulting/"><em class="social-icon fab fa-linkedin-in"></em></a></li>
@@ -71,12 +72,13 @@
                         </div>
                     </div><!-- .col -->
                 </div><!-- .row -->
+            </div><!-- .block @e -->
+        </div>
+    </section>
                 <div class="footer-bottom pdt-r">
                     <div class="copyright-text copyright-text-s1 text-center text-sm-left text-lg-center">
                         <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tout droits resérvé Octopus Consulting</p>
                     </div>
                 </div>
-            </div><!-- .block @e -->
-        </div>
-    </section>
+                <br>
 </footer>

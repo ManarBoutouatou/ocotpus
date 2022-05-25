@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact, Invoice
+from .models import Contact, Invoice, Demo
 from django.core.mail import send_mail
 from config.settings import EMAIL_HOST_USER
 
@@ -21,7 +21,38 @@ class ContactForm(forms.Form):
     honeypot = forms.CharField(required=False,  label="leave empty", validators=[must_be_empty])
     message = forms.CharField()    
 
+
+class DemoForm(forms.ModelForm) :
+    class Meta: 
+        model = Demo 
+        fields = '__all__' 
+
+   
+    def get_info(self):
         
+        cleaned_data = super().clean()
+
+        name = cleaned_data.get('name').strip()
+        email = cleaned_data.get('email')
+        subject = cleaned_data.get('subject')
+        msg = f'Bonjour {name},'
+        msg += f'Octopus-consultung vous remercie de l&#8216;intérêt que vous portez à ses services, nous vous contacterons prochainement avec un e-mail détaillé concernant votre demande.'
+        msg += f'Merci de votre temps,'
+        msg += f'Bien à vous, '
+        return subject, msg, email
+
+    def send_email(self):
+
+        subject, msg, email = self.get_info()
+
+        send_mail(
+            subject=subject,
+            message=msg,
+            from_email= EMAIL_HOST_USER,
+            recipient_list=[email],
+        )
+
+
 class ContactForm(forms.ModelForm) :
     class Meta: 
         model = Contact 

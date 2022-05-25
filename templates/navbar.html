@@ -34,17 +34,17 @@
                                 <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:index' %}">ACCEUIL </a></li>
                                 <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:services' %}">SERVICES</a></li>
                                 <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:articles' %}">BLOG</a></li>
-                                <li class="menu-item"><a class="menu-link nav-link" href="#token">REALISATIONS</a></li>
+                                <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:realisations' %}">REALISATIONS</a></li>
                                 <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:contact' %}">CONTACT</a></li>
                             </ul>
                             <ul class="menu-btns align-items-center animated remove-animation" data-animate="fadeInDown" data-delay=".85">
-                                <li class="language-switcher language-switcher-s2 toggle-wrap">
+                                {% comment %} <li class="language-switcher language-switcher-s2 toggle-wrap">
                                     <a class="btn btn-rg toggle-tigger btn-outline btn-auto no-change btn-primary" href="#"><span>FR</span><em class="icon ti ti-angle-down"></em></a>
                                     <ul class="toggle-class toggle-drop drop-list drop-list-mb">
                                         <li><a href="#">EN</a></li>
                                         <li><a href="#">AR</a></li>
                                     </ul>
-                                </li>
+                                </li> {% endcomment %}
                                 
                             </ul>
                         

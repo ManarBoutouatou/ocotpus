@@ -53,18 +53,18 @@
                                 <ul class="menu animated remove-animation" data-animate="fadeInDown" data-delay=".75">
                                     <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:index' %}">ACCEUIL </a></li>
                                     <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:services' %}">SERVICES</a></li>
-                                    <li class="menu-item"><a class="menu-link nav-link" href="#works">BLOG</a></li>
-                                    <li class="menu-item"><a class="menu-link nav-link" href="#token">REALISATIONS</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:articles' %}">BLOG</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:realisations' %}">REALISATIONS</a></li>
                                     <li class="menu-item"><a class="menu-link nav-link" href="{% url 'core:contact' %}">CONTACT</a></li>
                                 </ul>
                                 <ul class="menu-btns align-items-center animated remove-animation" data-animate="fadeInDown" data-delay=".85">
-                                    <li class="language-switcher language-switcher-s2 toggle-wrap">
+                                    {% comment %} <li class="language-switcher language-switcher-s2 toggle-wrap">
                                         <a class="btn btn-rg toggle-tigger btn-outline btn-auto no-change btn-primary" href="#"><span>FR</span><em class="icon ti ti-angle-down"></em></a>
                                         <ul class="toggle-class toggle-drop drop-list drop-list-mb">
                                             <li><a href="#">EN</a></li>
                                             <li><a href="#">AR</a></li>
                                         </ul>
-                                    </li>
+                                    </li> {% endcomment %}
                                     
                                 </ul>
                             </nav>
@@ -82,21 +82,21 @@
                                     <div class="col-lg-12 col-xl-12 text-center text-lg-center">
                                         <div class="banner-caption tc-light">
                                             <div class="cpn-head mt-0">
-                                                <h1 class="title title-thin title-xl-2 animated" data-animate="fadeInUp" data-delay="1.25" style="font-weight: bold;"> OCTOPUS-CONSULTING <br> </h1>
+                                                <h1 class="title title-thin title-xl-2 animated" data-animate="fadeInUp" data-delay="1.25" style="font-weight: bold; "> OCTOPUS CONSULTING <br> </h1>
                                             </div>
                                             <div class="cpn-text cpn-text-s2">
                                                 <p class="lead-s2 lead-light animated" data-animate="fadeInUp" data-delay="1.35"> <strong> AGENCE DE CROISSANCE DIGITALE </strong> </p>
                                             </div>
                                             <div class="cpn-btns">
                                                 <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45">
-                                                    <li><a class="btn btn-md btn-primary btn-outline" href="#">E-commerce</a></li>
-                                                    <li><a class="btn btn-md btn-primary btn-outline" href="#">Gym app</a></li>
+                                                    <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:services' %}">Services</a></li>
+                                                    <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:services' %}">Devis</a></li>
                                                 </ul>
                                             </div>
                                             <div class="cpn-social">
                                                 <h4 class="title-xs animated" data-animate="fadeInUp" data-delay="1.55">REJOIGNEZ NOTRE COMMUNAUTÉ</h4>
                                                 <ul class="social">
-                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a href="https://wa.me/672606639"><em class="social-icon fab fa-whatsapp"></em><span>whatsapp</span></a></li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a href="https://wa.me/213672606639"><em class="social-icon fab fa-whatsapp"></em><span>whatsapp</span></a></li>
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a href="https://www.facebook.com/OctopusConsultingAlgerie"><em class="social-icon fab fa-facebook-f"></em></a></li>
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a href="https://www.instagram.com/octopus.consulting/"><em class="social-icon fab fab fa-instagram"></em></a></li>
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a href="https://www.linkedin.com/company/dz-octopus-consulting/"><em class="social-icon fab fa-linkedin-in"></em></a></li>
@@ -104,35 +104,7 @@
                                             </div>
                                         </div>
                                     </div><!-- .col -->
-                                    {% comment %} <div class="col-lg-6 col-xl-5 col-md-8 col-sm-9">
-                                        <div class="token-status token-status-s3 round bg-theme tc-light animated" data-animate="fadeInUp" data-delay="2">
-                                            <h4 class="title-md title-thin">Pre-Sale Ends In</h4>
-                                            <div class="countdown-s2 countdown" data-date="2021/08/10 20:00:00"></div>
-                                            <div class="token-info token-info-s1">
-                                                <div class="token-info-item token-info-item-s1">
-                                                    <div class="token-info-item-list">
-                                                        <span>Token Price:</span>
-                                                        <h4>1 ICOX=$0.02</h4>
-                                                    </div>
-                                                    <div class="token-info-item-list">
-                                                        <span>We Accept:</span>
-                                                        <h4><em class="fab fa-ethereum"></em> ETH</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="token-info-item token-info-item-s1">
-                                                    <span>Tokens Availablen <br class="d-none d-md-block"> on Pre-Sale:</span>
-                                                    <h4>90,000,000 ICOX</h4>
-                                                </div>
-                                            </div>
-                                            <div class="token-action token-action-s2 flex-wrap flex-sm-nowrap">
-                                                <a href="#" class="btn btn-md btn-secondary">Buy Tokens Now</a>
-                                                <div class="token-min-s2">
-                                                    <span>Minimum Purchase:</span> 
-                                                    <span>10,000 ICOX</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> {% endcomment %}
+                                    
                                     <!-- .col -->
                                 </div><!-- .row -->
                             </div>
@@ -156,7 +128,7 @@
                         <div class="row align-items-center flex-row-reverse gutter-vr-30px">
                             <div class="col-lg-5">
                                 <div class="gfx py-4 mx-auto mx-lg-0 animated" data-animate="fadeInUp" data-delay=".1">
-                                    <img src="{% static 'images/light-logo.png' %}" alt="gfx" style="margin-left:110px; width:400px;">
+                                    <img src="{% static 'images/light-logo.png' %}" alt="gfx" style="margin-left:110px;  width:100%; height:auto">
                                 </div>
                             </div><!-- .col -->
                             <div class="col-lg-7">
@@ -221,24 +193,32 @@
                     <!-- Block @s -->
                     <div class="nk-block nk-block-features-s3">
                         <div class="section-head section-head-s7 wide-auto-sm text-center">
-                            <h2 class="title title-thin animated" data-animate="fadeInUp" data-delay=".1">{% trans "NO SERVICES" %}</h2>
+                            <h2 class="title title-thin animated" data-animate="fadeInUp" data-delay=".1">{% trans "NOS SERVICES" %}</h2>
                             <p class="lead animated" data-animate="fadeInUp" data-delay=".2"></p>
                         </div>
-                        <div class="row justify-content-center gutter-vr-30px">
+                         <div class="row justify-content-center gutter-vr-30px">
                             {% for service in services  %}
-                            <div class="col-lg-4 col-md-6">
-                                <div class="feature feature-s3 feature-center animated" data-animate="fadeInUp" data-delay=".5">
-                                    <div class="feature-icon feature-icon-auto">
-                                        <em class="icon icon-grd icon-lg {{service.icon}}"></em> 
+                                <div class="col-lg-4 col-md-6">
+                            <a href="{% url 'core:service_detail' service.pk %}"> 
+                                    <div class="feature feature-s3 feature-center animated" data-animate="fadeInUp" data-delay=".5">
+                                        <div class="feature-icon feature-icon-auto">
+                                            <em class="icon icon-grd icon-lg {{service.icon}}"></em> 
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4 class="title-sm title-semibold">{{service.name}}</h4>
+                                            <p class="fw-4">{{service.title}}</p>
+                                        </div>
                                     </div>
-                                    <div class="feature-text">
-                                        <h4 class="title-sm title-semibold">{{service.name}}</h4>
-                                        <p class="fw-4">{{service.title}}</p>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            {% endfor %}
+                                </a>
+                                </div><!-- .col -->
+                            {% endfor %} 
                         </div><!-- .row -->
+
+                      <div class="cpn-btns" >
+                              <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45" style ="margin-left:450px;" >
+                                  <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:services' %}">Tous nos services</a></li>
+                               </ul>
+                     </div>
                     </div><!-- Block @e -->
                 </div>
             </section>
@@ -335,7 +315,7 @@
                     <!-- Block @s -->
                     <div class="nk-block block-partners">
                         <div class="section-head section-head-sm">
-                            <h6 class="title-md title-thin text-center animated" data-animate="fadeInUp" data-delay=".1">{% trans "Nos partenaires" %}</h6>
+                            <h2 class="title-md title-thin text-center animated" data-animate="fadeInUp" data-delay=".1">{% trans "NOS PARTENAIRES" %}</h2>
                         </div>
                         <ul class="partner-list flex-lg-nowrap mgb-m30">
                             {% for client in clients %} 
