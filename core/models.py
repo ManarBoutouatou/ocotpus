@@ -62,7 +62,9 @@ class Service(models.Model):
 
 class Offre(models.Model):
     title        = models.CharField(verbose_name=_('Offre'), max_length=100)
-    description  = tinymce_models.HTMLField(blank=True, null=True)
+    description  = models.TextField( blank=True, null=True)
+    service              = models.ForeignKey(Service, on_delete=models.CASCADE,blank=True, null=True)
+
     prix         = models.DecimalField(max_digits=20,  decimal_places=0, blank=True, null=True)
     created      = models.DateTimeField(verbose_name='Date de Création',  auto_now_add=True)
     updated      = models.DateTimeField(verbose_name='Date de dernière mise à jour',  auto_now=True)
@@ -77,7 +79,8 @@ class Offre(models.Model):
 
 class Fonctionalite(models.Model):
     title        = models.CharField( max_length=100)
-    description  = tinymce_models.HTMLField(blank=True, null=True)
+    service      = models.ForeignKey(Service, on_delete=models.CASCADE,blank=True, null=True)
+    description  = models.TextField( blank=True, null=True)
     created      = models.DateTimeField(verbose_name='Date de Création',  auto_now_add=True)
     updated      = models.DateTimeField(verbose_name='Date de dernière mise à jour',  auto_now=True)
 
@@ -89,9 +92,8 @@ class Fonctionalite(models.Model):
         verbose_name_plural = 'fonctionalites' 
 
 class Status(models.Model):
-    service              = models.ForeignKey(Service, on_delete=models.CASCADE,blank=True, null=True)
     offre                = models.ForeignKey(Offre, verbose_name=_("offre"), on_delete=models.CASCADE,blank=True, null=True)
-    fonctionalite        = models.ForeignKey(Fonctionalite, verbose_name=_("fonctionalite"), on_delete=models.CASCADE,blank=True, null=True)
+    fonctionalite        = models.ForeignKey(Fonctionalite,related_name="status", verbose_name=_("fonctionalite"), on_delete=models.CASCADE,blank=True, null=True)
     included             = models.BooleanField(verbose_name="inclu dans l'offre", default=False)
     quantity             = models.CharField(verbose_name=_('quantité'), max_length=100,blank=True, null=True)
     created              = models.DateTimeField(verbose_name='Date de Création',  auto_now_add=True)

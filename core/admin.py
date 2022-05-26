@@ -102,24 +102,53 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class StatusAdmin(admin.ModelAdmin):
-    list_display = ('id', 'fonctionalite','service', 'offre', 'quantity','included' )
+    list_display = ('id', 'fonctionalite', 'offre', 'quantity','included' )
     list_editable = ['quantity','included']
-    list_filter = ('service', 'offre',)
-    list_display_links = ('id','fonctionalite', 'offre','service',)
+    list_filter = ( 'offre',)
+    list_display_links = ('id','fonctionalite', 'offre',)
     list_per_page = 40
 
-    
-
 class StatusInline(admin.TabularInline):
-    model           = Status
-    raw_id_fields   = ['fonctionalite','service', 'offre',]
+    model   = Status
+    fields   = ['fonctionalite', 'included','quantity']
+    extra = 0 
+
+class OfferInline(admin.TabularInline):
+    model           = Offre
+    fields   = ['title', 'description',]
+    extra = 0
+
+
+class FuntionsInline(admin.TabularInline):
+    model           = Fonctionalite
+    fields   = ['title', 'description',]
+
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'description']
+    list_display = ['id', 'name', ]
     list_filter = ['name',]
+    list_display_links = ['id', 'name', ]
+
+    inlines = [OfferInline, FuntionsInline] 
+    list_per_page = 30
+class FonctionaliteAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title','service' ]
+    list_filter = ['service']
+    list_display_links = ['id', 'title']
+    list_editable = ['service']
+
     inlines = [StatusInline] 
     list_per_page = 30
 
+
+
+class OffreAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title','service', 'prix' ]
+    list_filter = ['title','service', 'prix']
+    list_display_links = ['id', 'title', 'service' ,'prix']
+
+    inlines = [StatusInline] 
+    list_per_page = 30
 
 admin.site.register(Quote, QuoteAdmin)
 admin.site.register(Contact, ContactAdmin)
@@ -129,6 +158,6 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Portfolio)
 admin.site.register(Pagetitle)
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(Fonctionalite)
+admin.site.register(Fonctionalite, FonctionaliteAdmin)
 admin.site.register(Status, StatusAdmin)
-admin.site.register(Offre)
+admin.site.register(Offre, OffreAdmin)

@@ -98,64 +98,289 @@
                             </div>
                 </div>
            {% endif %}  {% endcomment %}
-            <div class="rn-pricing-table-area pt--60 bg_color--5">
-    <div class="container-fluid">
-    <div class="reseller_hosting_plan">
-        <ul class="reseller_hosting_plan_list">
 
-            {% comment %} <li class="active">
-                <button>Starter</button>
-            </li>
-            <li>
-                <button>Business</button>
-            </li>
-            <li class="">
-                <button>Advanced</button>
-            </li> {% endcomment %}
-        </ul>
-        <table class="reseller_hosting_plan_table">
-            <thead>
-                {% for status in statuss %}
+
+
+            {% comment %} <div class="rn-pricing-table-area pt--60 bg_color--5">
+            <div class="container-fluid">
+                <div class="reseller_hosting_plan">
+                    <ul class="reseller_hosting_plan_list">
+    
+                        <li class="active">
+                            <button>Starter</button>
+                        </li>
+                        <li>
+                            <button>Business</button>
+                        </li>
+                        <li class="">
+                            <button>Advanced</button>
+                        </li>
+                    </ul>
+                    <table class="reseller_hosting_plan_table">
+                        <thead>
+                            <tr>
+                                <th class="hide"></th>
+                                <th class="default">Basic</th>
+                                <th>Business</th>
+                                <th class="">Standard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="chars" colspan="1">Fonctionnalitées</td>
+                            </tr>
+                            <tr>
+                                <td class="bAcheter_none">Fonctionnalitées</td>
+                                <td class="bg_3e7ccc center offers-header" style="display:table-cell">
+                                    <div class="reseller_plan_price ">Starter</div>
+                                    <div class="small_content" id="basic-price" data-mois="4000 DA Par mois" data-annee="48 000 DA Par An" >4000 DA Par mois</div>
+                                    <div class="small_content">Pour des entreprises de taille moyenne</div>
+                                    <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>                
+                                </td>
+                                <td class=" bg_3e7ccc center offers-header">
+                                    <div class="reseller_plan_price">Business</div>
+                                    <div class="small_content"id="business-price" data-mois="7000 DA Par mois" data-annee="84 000 DA Par An">7000 DA Par Mois</div>
+                                    <div class="small_content">Pour une entreprise établie</div>
+                                    <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>                
+                                </td>
+                                <td class="bg_3e7ccc center offers-header">
+                                    <div class="reseller_plan_price">Advanced</div>
+                                    <div class="small_content" id="advanced-price" data-mois="19 000 DA Par mois" data-annee="228 000 DA Par An">19 000 DA Par Mois</div>
+                                    <div class="small_content">Pour une grande entreprise</div>
+                                    <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>
+                                </td>
+                                <td class="bg_3e7ccc center offers-header">
+                                    <div class="reseller_plan_price">Presonnalisé</div>
+                                    <div class="small_content" id="advanced-price">sur devis</div>
+    
+                                    <div class="small_content">Votre boutique sur mesure</div>
+                                    <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E-Boutique</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Panier</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Achat direct ( sans panier )</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Admin</td>
+                                <td class="default">5</td>
+                                <td>20</td>
+                                <td>Illimité</td>
+                            </tr>
+                            <tr>
+                                <td>Produits</td>
+                                <td>500 </td>
+                                <td class="default">3000</td>
+                                <td>Illimité</td>
+                            </tr>
+                            <tr>
+                                <td>Traitement automatique des commandes</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Facebook pixel</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Generateur de factures</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Gestion des promotions</td>
+                                <td class="font-weight-bold text-danger">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Gestion avancée des produits (variants)</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Gestion de stock</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Gestion de Livraison</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Chat instantané</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Offre Flash</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Coupons</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Carte cadeau</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Compte client</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Newsletter</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Tableau de board</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Interface admin premium</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Recommandation de produit automatique</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-danger font-weight-bold">✗</td>
+                                <td class="text-success font-weight-bold">✓</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>  {% endcomment %}
+<div class="rn-pricing-table-area pt--60 bg_color--5">
+    <div class="container-fluid">
+        <div class="reseller_hosting_plan">
+            <ul class="reseller_hosting_plan_list">
+                {% for offer in offers %}
+                <li {% if forloop.counter == 1 %}class="active"{% endif %}>
+                    <button>{{offer.title}}</button>
+                </li>
+               
+                {% endfor %}
+            </ul>
+            <table class="reseller_hosting_plan_table">
+                <thead>
+                    <tr>
+                        <th class="hide"></th>
+                        <th class="default">Basic</th>
+                        <th>Business</th>
+                        <th class="">Standard</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <tr>
                         <td class="chars" colspan="1">Fonctionnalitées</td>
-                        <td class="bAcheter_none"></td>
-                        
-                        {% for offre in offres %}
-                                <td class="bg_3e7ccc center offers-header" style="display:table-cell;font-size: 21px; line-height: 30px; color: #000;">
-                                        <div class="reseller_plan_price "> {{status.offre}}</div>
-                                        <div class="small_content" >{{status.offre.prix}} DZD</div>
-                                        <div class="small_content">{{status.offre.description|safe}}</div>
-                                </td>
-                        {% endfor %}
-                    
                     </tr>
-                    {% comment %} <tr>
-                        <th class="hide"></th>
-                        <th class="default">Starter</th>
-                        <th>Business</th>
-                        <th class="">Advanced</th>
-                    </tr> {% endcomment %}
-         
-            </thead>
-            <tbody>
                     <tr>
-                        <td>{{status.git fonctionalite}}</td>
-                        <td></td>
-                        <td class="text-success font-weight-bold">{{status.included}}</td>
-                        
-                    
-                    </tr>
+                        <td class="bAcheter_none">Fonctionnalitées</td>
+                {% for offer in offers %}
+                    <td class="bg_3e7ccc center offers-header" style="display:table-cell">
+                        <div class="reseller_plan_price ">{{offer.title}}</div>
+                        <div class="small_content" id="basic-price" data-mois="{{offer.price}} DA Par mois" data-annee="48 000 DA Par An" >{{offer.price}} DA Par mois</div>
+                        <div class="small_content">{{offer.description}}</div>
+                        <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>                
+                    </td>
                 {% endfor %}
-            </tbody>
-        </table>
+
+                        {% comment %} <td class=" bg_3e7ccc center offers-header">
+                            <div class="reseller_plan_price">Business</div>
+                            <div class="small_content"id="business-price" data-mois="7000 DA Par mois" data-annee="84 000 DA Par An">7000 DA Par Mois</div>
+                            <div class="small_content">Pour une entreprise établie</div>
+                            <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>                
+                        </td>
+                        <td class="bg_3e7ccc center offers-header">
+                            <div class="reseller_plan_price">Advanced</div>
+                            <div class="small_content" id="advanced-price" data-mois="19 000 DA Par mois" data-annee="228 000 DA Par An">19 000 DA Par Mois</div>
+                            <div class="small_content">Pour une grande entreprise</div>
+                            <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>
+                        </td> {% endcomment %}
+                        {% comment %} <td class="bg_3e7ccc center offers-header">
+                            <div class="reseller_plan_price">Presonnalisé</div>
+                            <div class="small_content" id="advanced-price">sur devis</div>
+
+                            <div class="small_content">Votre boutique sur mesure</div>
+                            <button type="button" class="btn__trial" ><span class="css-j8fq0c"><span class="css-t5emrf"><a href='tel:{{business.phone}}'>CHOISIR</a></span></span></button>
+                        </td> {% endcomment %}
+                    </tr>
+                    {% for fonctionalite in fonctionalities %}
+                        <tr>
+                            <td>{{fonctionalite.title}}</td>
+                            {% comment %} <td>{{fonctionalite.status.all}}</td> {% endcomment %}
+                                {% for stat in fonctionalite.status.all %}
+                                    {% if stat.quantity %}
+                                        <td class="text-success font-weight-bold">{{stat.quantity}}</td>
+                                    {% elif stat.included %}
+                                        <td class="text-success font-weight-bold">✓</td>
+                                    {% else %}
+                                        <td class="font-weight-bold text-danger">✗</td>
+                                    {% endif %}
+                                {% endfor %}
+                            {% comment %} <td class="text-success font-weight-bold">✓</td>
+                            <td class="text-success font-weight-bold">✓</td> {% endcomment %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
     </div>
-    </div>
-    </div>  <br><br>
+</div>
+
+
+
+
+
+
+
+
+
        <div class="cpn-btns" >
-                              <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45" style ="margin-left:450px;" >
-                                  <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:demo' %}">Demander une démo</a></li>
-                               </ul>
-                     </div>
+            <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.45" style ="margin-left:450px;" >
+                <li><a class="btn btn-md btn-primary btn-outline" href="{% url 'core:demo' %}">Demander une démo</a></li>
+            </ul>
         </div>
     </section>
 <!-- // -->

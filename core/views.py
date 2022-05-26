@@ -31,11 +31,13 @@ class IndexView(TemplateView):
 class ServiceDetailView(DetailView):
     model = Service
     template_name = "service-detail.html"
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        service_id = self.get_object().id
-        context["statuss"] = Status.objects.filter(service=service_id)
-        context["offres"] = Offre.objects.all()
+        service= self.get_object()
+        # functions = service.fonctionalite_set.all()
+        context["fonctionalities"] = Fonctionalite.objects.filter(service=service)
+        context["offers"] = Offre.objects.all()
         return context
 
 class ServicesListView(ListView):
