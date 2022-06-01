@@ -6,6 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from business.models import Business
 from .models import Invoice, Quote, Service, Contact, Client, Article, Pagetitle, Portfolio, Demo, Status, Fonctionalite, Offre
 from .forms  import ContactForm, InvoiceCreateForm, DemoForm
+from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
@@ -13,8 +14,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from config.decorators import user_created_order
-from django.contrib import messages
 from django.core.mail import send_mail
+
 
 
 class IndexView(TemplateView):
@@ -36,8 +37,8 @@ class ServiceDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         service= self.get_object()
         # functions = service.fonctionalite_set.all()
-        context["fonctionalities"] = Fonctionalite.objects.filter(service=service)
-        context["offers"] = Offre.objects.all()
+        context["fonctionalities"] = Fonctionalite.objects.filter(service=service, priority__range=[1,100])
+        context["offers"] = Offre.objects.filter(service=service)
         return context
 
 class ServicesListView(ListView):
@@ -75,18 +76,60 @@ class DemoView(SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         form.send_email() 
         return super().form_valid(form)
+        
+    def form_invalid(self, form):
+        messages.error(self.request,form.errors)
+        return redirect('business:recruiting')
+
+# class ContactView(SuccessMessageMixin, CreateView):
+#     template_name= "contact.html"
+#     form_class= ContactForm
+#     model = Contact 
+#     success_message = "Votre message a été envoyé avec succès."
+#     success_url = reverse_lazy('core:contact')
+   
+#     def form_valid(self, form):
+#         form.send_email() 
+#         return super().form_valid(form)
+        
+#     def form_invalid(self, form):
+#         messages.error(self.request,form.errors)
+#         return super().form_invalid(form)
 
 class ContactView(SuccessMessageMixin, CreateView):
     template_name= "contact.html"
     form_class= ContactForm
     model = Contact 
-    success_message = "Votre message a été envoyé avec succès."
+    success_message = "Votre message a été envoyé avec succès, Nous vous contacterons prochainement avec un appel téléphonique ou un e-mail."
     success_url = reverse_lazy('core:contact')
-   
     def form_valid(self, form):
         form.send_email() 
         return super().form_valid(form)
-    
+
+def create_contact(request):
+    form = ContactForm(request.POST)
+    if form.is_valid():
+        form.send_email() 
+        form.save()
+    messages.success(request, f'Votre message a été envoyé avec succès.')
+    if request.htmx:
+        return render(request, 'snippets/message.html', {response : " RAHO YEMCHIIIIIIII"} )
+    return render(request, 'contact.html',)
+
+
+
+# def create_contact(request):
+#     print('raho yemchi')
+#     form = ContactForm()
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             form.send_email() 
+#             form.save()
+#         messages.success(request, f'Votre message a été envoyé avec succès.')
+#         if request.htmx:
+#             return render(request, 'snippets/message.html', {response : " RAHO YEMCHIIIIIIII"} )
+#     return render(request, 'contact.html',)
 
 # @staff_member_required
 # def admin_order_detail(request, invoice_id):

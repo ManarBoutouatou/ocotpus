@@ -6931,7 +6931,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 
 
 /* ===================================
-     Comparison Price Plan Section
+     Comparaison Price Plan Section
 ====================================== */
 .reseller_hosting_plan {
   width: 100%;
@@ -6969,9 +6969,9 @@ ul.progress-info { display: flex; justify-content: space-between; }
   color: #233774;
 }
 .reseller_hosting_plan_list li.active button {
-  background-color: #233774;
-  background-image: -webkit-linear-gradient(305deg, #233774 0%, #3790e6 100%);
-  background-image: linear-gradient(145deg, #233774 0%, #3790e6 100%);
+  background-color: #866bfe;
+  background-image: -webkit-linear-gradient(305deg, #866bfe 0%, #866bfe 100%);
+  background-image: linear-gradient(145deg, #866bfe 0%, #866bfe 100%);
   color: #fff;
 }
 .reseller_hosting_plan_table {
@@ -7071,7 +7071,7 @@ th + th {
 .reseller_hosting_plan_table thead th {
   font-size: 24px;
   line-height: 24px;
-  color: #233774;
+  color: #866bfe;
   font-weight: 400;
   background-color: transparent;
   border: none;
@@ -7084,13 +7084,13 @@ th + th {
   font-size: 18px;
   line-height: 18px;
   font-weight: 500;
-  color: #233774;
+  color: #000;
   margin-top: 30px;
 }
 .reseller_plan_price {
   font-size: 2rem;
   line-height: 24px;
-  color: #233774;
+  color: #000;
   font-weight: 500;
 }
 .reseller_plan_price span {

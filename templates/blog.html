@@ -1,26 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_language_info_list for LANGUAGES as languages %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="zxx" class="js">
-<head>
-	<meta charset="utf-8">
-    <meta name="author" content="Softnio">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
-    <!-- Site Title  -->
-    <title>{% trans "Octopus Consulting | Agence de marketing digital" %}</title>
-    <!-- Bundle and Base CSS -->
-    <link rel="stylesheet" href="{% static 'css/vendor.bundle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style-salvia.css' %}" id="changeTheme">
-    <!-- Extra CSS -->
-    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-</head>
+
 <body class="nk-body body-wider mode-onepage">
 	<div class="nk-wrap">
         {% include  "navbar.html" %} 
@@ -78,15 +63,7 @@
             </section><!-- .section -->
         </main>
     </div>
-{% include  "footer.html" %} 
 </body>
-<div class="preloader"><span class="spinner spinner-round"></span></div>
-<!-- JavaScript -->
-<script src="{% static 'js/jquery.bundle.js' %}"></script>
-<script src="{% static 'js/scripts.js' %}"></script>
-<script src="{% static 'js/charts.js' %}"></script>
-<script src="{% static 'js/wow.js' %}"></script>
-<script src="https://use.fontawesome.com/46f5d04788.js"></script>
 
 </html>
 {% endblock content %}

@@ -110,7 +110,7 @@ class StatusAdmin(admin.ModelAdmin):
 
 class StatusInline(admin.TabularInline):
     model   = Status
-    fields   = ['fonctionalite', 'included','quantity']
+    fields   = ['fonctionalite','offre', 'included','quantity']
     extra = 0 
 
 class OfferInline(admin.TabularInline):
@@ -131,8 +131,10 @@ class ServiceAdmin(admin.ModelAdmin):
 
     inlines = [OfferInline, FuntionsInline] 
     list_per_page = 30
+
+
 class FonctionaliteAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title','service' ]
+    list_display = ['id', 'title','service', ]
     list_filter = ['service']
     list_display_links = ['id', 'title']
     list_editable = ['service']
@@ -143,9 +145,9 @@ class FonctionaliteAdmin(admin.ModelAdmin):
 
 
 class OffreAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title','service', 'prix' ]
-    list_filter = ['title','service', 'prix']
-    list_display_links = ['id', 'title', 'service' ,'prix']
+    list_display = ['id', 'title','service', 'price_month', 'price_year']
+    list_filter = ['title','service', 'price_month', 'price_year']
+    list_display_links = ['id', 'title', 'service' ,'price_month', 'price_year']
 
     inlines = [StatusInline] 
     list_per_page = 30

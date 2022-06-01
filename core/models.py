@@ -64,8 +64,9 @@ class Offre(models.Model):
     title        = models.CharField(verbose_name=_('Offre'), max_length=100)
     description  = models.TextField( blank=True, null=True)
     service              = models.ForeignKey(Service, on_delete=models.CASCADE,blank=True, null=True)
-
-    prix         = models.DecimalField(max_digits=20,  decimal_places=0, blank=True, null=True)
+    priority  = models.IntegerField(verbose_name=_('ordre / priorité'), blank=True, null=True)
+    price_month         = models.DecimalField(max_digits=20, decimal_places=0, blank=True, null=True)
+    price_year        = models.DecimalField(max_digits=20, decimal_places=0, blank=True, null=True)
     created      = models.DateTimeField(verbose_name='Date de Création',  auto_now_add=True)
     updated      = models.DateTimeField(verbose_name='Date de dernière mise à jour',  auto_now=True)
 
@@ -81,6 +82,7 @@ class Fonctionalite(models.Model):
     title        = models.CharField( max_length=100)
     service      = models.ForeignKey(Service, on_delete=models.CASCADE,blank=True, null=True)
     description  = models.TextField( blank=True, null=True)
+    priority  = models.IntegerField(verbose_name=_('ordre / priorité'), blank=True, null=True)
     created      = models.DateTimeField(verbose_name='Date de Création',  auto_now_add=True)
     updated      = models.DateTimeField(verbose_name='Date de dernière mise à jour',  auto_now=True)
 

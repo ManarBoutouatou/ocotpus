@@ -7,6 +7,33 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name','phone','email','subject','message']
+    def get_info(self):
+        
+        cleaned_data = super().clean()
+
+        name = cleaned_data.get('name').strip()
+        email = cleaned_data.get('email')
+        email = cleaned_data.get('phone')
+        subject = cleaned_data.get('subject')
+        msg = f'Bonjour {name},'
+        msg +=  "Octopus-consultung vous remercie de l'intérêt que vous portez à ses services, nous vous contacterons prochainement avec un e-mail détaillé concernant votre demande."
+        
+        msg +='Merci de votre temps,'
+        
+        msg +='Bien à vous, '
+        return subject, msg, email
+
+    def send_email(self):
+
+        subject, msg, email = self.get_info()
+
+        send_mail(
+            subject=subject,
+            message=msg,
+            from_email= EMAIL_HOST_USER,
+            recipient_list=[email],
+        )
+
  
 
 def must_be_empty(value):
@@ -36,9 +63,9 @@ class DemoForm(forms.ModelForm) :
         email = cleaned_data.get('email')
         subject = cleaned_data.get('subject')
         msg = f'Bonjour {name},'
-        msg += f'Octopus-consultung vous remercie de l&#8216;intérêt que vous portez à ses services, nous vous contacterons prochainement avec un e-mail détaillé concernant votre demande.'
-        msg += f'Merci de votre temps,'
-        msg += f'Bien à vous, '
+        msg += "Octopus-consultung vous remercie de l'intérêt que vous portez à ses services, nous vous contacterons prochainement avec un e-mail détaillé concernant votre demande."
+        msg += 'Merci de votre temps,'
+        msg += 'Bien à vous, '
         return subject, msg, email
 
     def send_email(self):
@@ -65,9 +92,9 @@ class ContactForm(forms.ModelForm) :
         email = cleaned_data.get('email')
         subject = cleaned_data.get('subject')
         msg = f'Bonjour {name},'
-        msg += f'Octopus-consultung vous remercie de l&#8216;intérêt que vous portez à ses services, nous vous contacterons prochainement avec un e-mail détaillé concernant votre demande.'
-        msg += f'Merci de votre temps,'
-        msg += f'Bien à vous, '
+        msg += "Octopus-consultung vous remercie de l'intérêt que vous portez à ses services, nous vous contacterons prochainement avec un e-mail détaillé concernant votre demande."
+        msg += 'Merci de votre temps,'
+        msg += 'Bien à vous, '
         return subject, msg, email
 
     def send_email(self):

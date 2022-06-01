@@ -1,26 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_language_info_list for LANGUAGES as languages %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="zxx" class="js">
-<head>
-	<meta charset="utf-8">
-    <meta name="author" content="Softnio">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
-    <!-- Site Title  -->
-    <title>{% trans "Octopus Consulting | Agence de marketing digital" %}</title>
-    <!-- Bundle and Base CSS -->
-    <link rel="stylesheet" href="{% static 'css/vendor.bundle.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style-salvia.css' %}" id="changeTheme">
-    <!-- Extra CSS -->
-    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-</head>
+
 <body class="nk-body body-wider mode-onepage">
 	<div class="nk-wrap">
         {% include  "navbar.html" %} 
@@ -46,7 +31,7 @@
             </div>
         </div>
         <main class="nk-pages">
-            <div class="section">
+            <div class="section bg-white">
                 <div class="container">
                     <div class="nk-block">
                         <div class="row justify-content-center">
@@ -58,21 +43,27 @@
                             </div>
                         </div>
                             <!-- Block @s -->
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <div class="alert {{ message.tags }} alert-dismissible text-center" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        {{ message|safe }}
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {{ message.tags }} alert-dismissible text-center" role="alert"  > 
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %} 
+                                                       
+                            <div id="messageContact">
+					            {% include 'snippets/message.html' %}
+			            	</div>  
+                            
+
 					<div class="nk-block block-contact" id="contact">
                         <div class="row justify-content-center no-gutters">
                             <div class="col-lg-6">
-                                <div class="contact-wrap round split split-left split-lg-left bg-white">
-                                    
+                                <div class="contact-wrap round split split-left split-lg-left bg-white"> 
                                     {% comment %} <h5 class="title title-md">Contactez-nous</h5>
                                     <p class="wide-sm">Nous vous recontacterons dans les 48H pour échanger sur votre projet.</p> {% endcomment %}
                                                     <!-- message -->
@@ -84,7 +75,8 @@
                                                         </ul> 
                                                     {% endif %}  {% endcomment %}
                                                     <!-- message -->
-                                    <form class="nk-form-submit" action="{% url 'core:contact' %}" method="post" >
+                                    {% comment %} <form class="nk-form-submit" hx-post="{% url 'core:contact' %}" hx-swap="innerHTML" hx-target="#messageContact">   {% endcomment %}
+                                    <form class="nk-form-submit" method="post" action="{% url 'core:contact' %}"  >
                                         {% csrf_token %}
                                         <div class="field-item">
                                             <input name="name" id="id_name" type="text" class="input-line required" aria-required="true">
@@ -96,7 +88,7 @@
                                         </div>
                                         <div class="field-item">
                                             <input name="phone"  id="id_phone" type="tel" class="input-line required " pattern="^(?:0|\(?\+213\)?\s?|00213\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
-                                            <label class="field-label field-label-line" for="id_phone">Votre numéro de téléphone *</label>
+                                            <label class="field-label field-label-line" for="id_phone">Votre numéro de téléphone +213*</label>
                                         </div>
                                         <div class="field-item">
                                             <input name="subject" id="id_subject"  type="text" class="input-line required " aria-required="true">
@@ -106,7 +98,6 @@
                                             <textarea name="message" id="id_message" class="input-line input-textarea required" aria-required="true"></textarea>
                                             <label class="field-label field-label-line" for="id_message">Votre Message</label>
                                         </div>
-                                        <input type="text" class="d-none" name="form-anti-honeypot" value="">
                                         <div class="row">
                                                   
                                             <div class="col-sm-4"> 
@@ -145,8 +136,8 @@
                                             </li>
                                             <br>  <br> 
                                              <li>
-                                                <div class="contact-text">                                                
-                                                        <img src="{% static 'images/logo.png' %}"  alt="logo">
+                                                <div class="contact-text" >                                                
+                                                        <img src="{% static 'images/logo.png' %}"  alt="logo" style="margin-left:15px;">
                                                 </div>
                                             </li>
                                             {% comment %} <li>
@@ -178,15 +169,8 @@
         </main>
     </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3207.950605110489!2d2.8062816156271007!3d36.48290909319468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128f0dde61df1af3%3A0xb7fbfe86f236ee81!2sOctopus%20Consulting%20Digital%20Growth%20Agency!5e0!3m2!1sen!2sdz!4v1632671230887!5m2!1sen!2sdz"  style="border:0;width: 100%; height:500px;" allowfullscreen="true" loading="lazy"></iframe>
-{% include  "footer.html" %} 
+
 </body>
-<div class="preloader"><span class="spinner spinner-round"></span></div>
-<!-- JavaScript -->
-<script src="{% static 'js/jquery.bundle.js' %}"></script>
-<script src="{% static 'js/scripts.js' %}"></script>
-<script src="{% static 'js/charts.js' %}"></script>
-<script src="{% static 'js/wow.js' %}"></script>
-<script src="https://use.fontawesome.com/46f5d04788.js"></script>
 
 </html>
 {% endblock content %}
